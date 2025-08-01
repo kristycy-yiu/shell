@@ -38,11 +38,11 @@ mv ./rawdata ./data/raw
 # 3. List the contents of the ./data/raw directory
 cd data 
 cd raw
+ls
 touch server1.log server2.log
 touch user1.log user2.log
 touch event1.log event2.log
 touch ipaddr1.txt ipaddr2.txt
-ls
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
 cd ..
 mkdir processed
