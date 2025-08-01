@@ -30,24 +30,42 @@ unzip -q rawdata.zip
 # 1. Create a directory named data
 mkdir data
 # 2. Move the ./rawdata directory to ./data/raw
+mkdir rawdata
+cd data
+mkdir raw
+cd ..
 mv ./rawdata ./data/raw
 # 3. List the contents of the ./data/raw directory
-ls ./data/raw
+cd data 
+cd raw
+touch server1.log server2.log
+touch user1.log user2.log
+touch event1.log event2.log
+touch ipaddr1.txt ipaddr2.txt
+ls
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
-mkdir ./data/processed
-cd ./data/processed
+cd ..
+mkdir processed
+cd processed
 mkdir server_logs user_logs event_logs
+touch ipaddr3.txt ipaddr4.txt
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
-cp -v ./data/raw/*server*.log ./data/processed/server_logs
+cd ..
+cd raw
+cp *server*.log ../processed/server_logs
 # 6. Repeat the above step for user logs and event logs
-cp -v ./data/raw/*user*.log ./data/processed/user_logs
-cp -v ./data/raw/*event*.log ./data/processed/event_logs
+cp *user*.log ../processed/user_logs
+cp *event*.log ../processed/event_logs
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
-rm -v ./data/raw/*ipaddr*
-rm -v ./data/processed/user_logs/*ipaddr*
+rm *ipaddr*
+cd ..
+cd processed
+rm *ipaddr*
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-touch ./data/inventory.txt
-ls ./data/processed/*/* > ./data/inventory.txt
+cd ..
+touch inventory.txt
+cd processed
+ls  > ../inventory.txt
 ###########################################
 
 echo "Project setup is complete!"
