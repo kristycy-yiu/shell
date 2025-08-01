@@ -36,9 +36,9 @@ mkdir raw
 cd ..
 mv ./rawdata ./data/raw
 # 3. List the contents of the ./data/raw directory
+ls ./data/raw
 cd data 
 cd raw
-ls
 touch server1.log server2.log
 touch user1.log user2.log
 touch event1.log event2.log
@@ -65,7 +65,7 @@ rm *ipaddr*
 cd ..
 touch inventory.txt
 cd processed
-ls  > ../inventory.txt
+ls * > ../inventory.txt
 ###########################################
 
 echo "Project setup is complete!"
